@@ -1,0 +1,17 @@
+server:
+  port: 8008
+
+mybatis:
+  mapper-locations: 'classpath:mapper/*.xml'
+  type-handlers-package: com.david.poc.springboot.crud.dao.handler
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  datasource:
+    url: jdbc:h2:./target/h2test
+  flyway:
+    clean-on-validation-error: true
+logging:
+  level:
+    root: INFO

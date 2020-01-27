@@ -1,2 +1,2 @@
 # poc-microservices
-API Rest with spring-boot, jersey, hibernate validator, mybatis, sql, flyway, junit5, cucumber
+Proof of concept of an API Rest with Java 8, Spring Boot, Jersey, Hibernate Validator, Lombok, Mybatis, SQL, Flyway, Junit 5, Mockito, Cucumber...

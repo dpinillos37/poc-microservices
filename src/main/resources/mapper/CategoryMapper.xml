@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.david.poc.springboot.crud.dao.mapper.CategoryMapper">
+  <delete id="delete"
+      parameterType="com.david.poc.springboot.crud.model.Category">
+    DELETE
+    FROM ELECTION_CATEGORY
+    WHERE ID_CATEGORY = #{idCategory}
+  </delete>
+  <insert id="insert"
+      parameterType="com.david.poc.springboot.crud.model.Category">
+    INSERT INTO ELECTION_CATEGORY(ID_CATEGORY, CATEGORY_NAME, CREATION,
+    LAST_UPDATE)
+    VALUES(#{idCategory}, #{categoryName}, #{creation}, #{lastUpdate})
+  </insert>
+  <select id="selectAll"
+      parameterType="com.david.poc.springboot.crud.model.Category"
+      resultType="com.david.poc.springboot.crud.model.Category">
+    <include refid="selectBase"/>
+    FETCH FIRST 1000 ROWS ONLY
+  </select>
+  <select id="selectOne"
+      parameterType="com.david.poc.springboot.crud.model.Category"
+      resultType="com.david.poc.springboot.crud.model.Category">
+    <include refid="selectBase"/>
+    WHERE ID_CATEGORY = #{idCategory}
+  </select>
+  <select id="selectByName"
+      parameterType="com.david.poc.springboot.crud.model.Category"
+      resultType="com.david.poc.springboot.crud.model.Category">
+    <include refid="selectBase"/>
+    WHERE CATEGORY_NAME = #{categoryName}
+  </select>
+  <sql id="selectBase">
+    SELECT ID_CATEGORY, CATEGORY_NAME, CREATION, LAST_UPDATE
+    FROM ELECTION_CATEGORY
+  </sql>
+  <update id="update"
+      parameterType="com.david.poc.springboot.crud.model.Category">
+    UPDATE ELECTION_CATEGORY
+    SET
+    CATEGORY_NAME = #{categoryName},
+    CREATION = #{creation},
+    LAST_UPDATE = #{lastUpdate}
+    WHERE ID_CATEGORY = #{idCategory}
+  </update>
+</mapper>
